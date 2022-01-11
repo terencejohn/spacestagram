@@ -12,7 +12,7 @@ const NasaPhotos = () => {
         fetchPhotos()
 
         async function fetchPhotos() {
-            const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apikey}&count=20`)
+            const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apikey}&count=40`)
             const photos = await res.json()
             setNasaPhotos(photos)
            
