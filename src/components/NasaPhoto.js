@@ -5,10 +5,16 @@ import { Box,
   Heading,
   Text,
   Stack,
-  Image } from "@chakra-ui/react"
+    Image,
+    Flex,
+    Spacer
+} from "@chakra-ui/react"
+import LikeButton from "./LikeButton"
+  
+
 const NasaPhoto = ({photo}) => {
     return (
-        <Center py={12} mx="1rem" >
+        <Center as="article" className="photo" py={12} mx="1rem" >
       <Box
         role={'group'}
         p={6}
@@ -35,21 +41,39 @@ const NasaPhoto = ({photo}) => {
                         alt={photo.title}
           />
         </Box>
-        <Stack pt={10} align={'center'}>
-       
-          <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} align={'center'}>
+          <Stack pt={10} align={'center'}>
+            
+            {/*Photo Title*/}
+            <Heading fontSize={['sm','xl','2xl']} fontFamily={'body'} fontWeight={500} align={'center'}>
             {photo.title}
-          </Heading>
-          <Stack direction={'row'} align={'center'} spacing={'5rem'}>
-            <Text fontWeight={800} fontSize={'xl'}>
-              Like
+            </Heading>
+            
+            {/*Details of the photo*/}
+            <Text noOfLines={[3, 4, 6]}>
+            {photo.explanation}
             </Text>
-            <Text  color={'gray.600'}>
-              Share
-            </Text>
+
+            <Flex  >
+              <Box>
+                <LikeButton />  
+              </Box>
+              
+              <Spacer />
+              <Box>
+                <Flex direction={'column'} align={'center'} ml={"75"}>
+                <Text color={'gray.600'} fontSize={'sm'}>
+                  Image date:
+                </Text>
+                <Spacer />
+                <Text color={'gray.600'}>
+                  {photo.date}
+                </Text>
+              </Flex>
+            
+              </Box>
+              </Flex>
           </Stack>
-        </Stack>
-      </Box>
+        </Box>
     </Center>
     )
 }

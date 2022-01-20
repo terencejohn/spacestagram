@@ -1,11 +1,10 @@
 
 import {  Flex, Text } from '@chakra-ui/layout';
-import './App.css';
 import NasaPhotos from './components/NasaPhotos.js';
 function App() {
   return (
 
-    <Flex flexDirection='column' p='' >
+    <Flex as="header" flexDirection='column' p='' >
 
     <Text fontSize='4xl' pl='1rem' >
       Spacestagram
